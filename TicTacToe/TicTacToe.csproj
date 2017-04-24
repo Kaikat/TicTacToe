@@ -1,0 +1,530 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{AC7FB069-2632-4D6F-BF4B-89F67D8C2E03}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>TicTacToe</RootNamespace>
+    <AssemblyName>TicTacToe</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MonoGamePlatform>DesktopGL</MonoGamePlatform>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="MonoGame.Framework">
+      <HintPath>$(MonoGameInstallDirectory)\MonoGame\v3.0\Assemblies\DesktopGL\MonoGame.Framework.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Game1.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="IScreen.cs" />
+    <Compile Include="IntroScreen.cs" />
+    <Compile Include="AssetConstants.cs" />
+    <Compile Include="Timer.cs" />
+    <Compile Include="IPlayer.cs" />
+    <Compile Include="NosyObserver.cs" />
+    <Compile Include="GameEvent.cs" />
+    <Compile Include="InterestingSubject.cs" />
+    <Compile Include="Button.cs" />
+    <Compile Include="Position.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.manifest" />
+    <None Include="Icon.png" />
+    <None Include="Content\Images\AmatsukazeAttackAnimation\In\In_0.png" />
+    <None Include="Content\Images\AmatsukazeAttackAnimation\In\In_1.png" />
+    <None Include="Content\Images\AmatsukazeAttackAnimation\In\In_10.png" />
+    <None Include="Content\Images\AmatsukazeAttackAnimation\In\In_2.png" />
+    <None Include="Content\Images\AmatsukazeAttackAnimation\In\In_3.png" />
+    <None Include="Content\Images\AmatsukazeAttackAnimation\In\In_4.png" />
+    <None Include="Content\Images\AmatsukazeAttackAnimation\In\In_5.png" />
+    <None Include="Content\Images\AmatsukazeAttackAnimation\In\In_6.png" />
+    <None Include="Content\Images\AmatsukazeAttackAnimation\In\In_7.png" />
+    <None Include="Content\Images\AmatsukazeAttackAnimation\In\In_8.png" />
+    <None Include="Content\Images\AmatsukazeAttackAnimation\In\In_9.png" />
+    <None Include="Content\Images\AmatsukazeAttackAnimation\Out\Out_0.png" />
+    <None Include="Content\Images\AmatsukazeAttackAnimation\Out\Out_1.png" />
+    <None Include="Content\Images\AmatsukazeAttackAnimation\Out\Out_10.png" />
+    <None Include="Content\Images\AmatsukazeAttackAnimation\Out\Out_2.png" />
+    <None Include="Content\Images\AmatsukazeAttackAnimation\Out\Out_3.png" />
+    <None Include="Content\Images\AmatsukazeAttackAnimation\Out\Out_4.png" />
+    <None Include="Content\Images\AmatsukazeAttackAnimation\Out\Out_5.png" />
+    <None Include="Content\Images\AmatsukazeAttackAnimation\Out\Out_6.png" />
+    <None Include="Content\Images\AmatsukazeAttackAnimation\Out\Out_7.png" />
+    <None Include="Content\Images\AmatsukazeAttackAnimation\Out\Out_8.png" />
+    <None Include="Content\Images\AmatsukazeAttackAnimation\Out\Out_9.png" />
+    <None Include="Content\Images\AmatsukazeButton\down.png" />
+    <None Include="Content\Images\AmatsukazeButton\hover.png" />
+    <None Include="Content\Images\AmatsukazeButton\up.png" />
+    <None Include="Content\Images\AmatsukazeFirstButton\down.png" />
+    <None Include="Content\Images\AmatsukazeFirstButton\hover.png" />
+    <None Include="Content\Images\AmatsukazeFirstButton\up.png" />
+    <None Include="Content\Images\Board\down.png" />
+    <None Include="Content\Images\Board\hover.png" />
+    <None Include="Content\Images\Board\pieceO.png" />
+    <None Include="Content\Images\Board\pieceX.png" />
+    <None Include="Content\Images\Board\potentialO.png" />
+    <None Include="Content\Images\Board\potentialX.png" />
+    <None Include="Content\Images\Board\up.png" />
+    <None Include="Content\Images\DrawAnimation\In\In_0.png" />
+    <None Include="Content\Images\DrawAnimation\In\In_1.png" />
+    <None Include="Content\Images\DrawAnimation\In\In_10.png" />
+    <None Include="Content\Images\DrawAnimation\In\In_11.png" />
+    <None Include="Content\Images\DrawAnimation\In\In_12.png" />
+    <None Include="Content\Images\DrawAnimation\In\In_13.png" />
+    <None Include="Content\Images\DrawAnimation\In\In_14.png" />
+    <None Include="Content\Images\DrawAnimation\In\In_15.png" />
+    <None Include="Content\Images\DrawAnimation\In\In_16.png" />
+    <None Include="Content\Images\DrawAnimation\In\In_17.png" />
+    <None Include="Content\Images\DrawAnimation\In\In_18.png" />
+    <None Include="Content\Images\DrawAnimation\In\In_19.png" />
+    <None Include="Content\Images\DrawAnimation\In\In_2.png" />
+    <None Include="Content\Images\DrawAnimation\In\In_20.png" />
+    <None Include="Content\Images\DrawAnimation\In\In_21.png" />
+    <None Include="Content\Images\DrawAnimation\In\In_22.png" />
+    <None Include="Content\Images\DrawAnimation\In\In_23.png" />
+    <None Include="Content\Images\DrawAnimation\In\In_24.png" />
+    <None Include="Content\Images\DrawAnimation\In\In_25.png" />
+    <None Include="Content\Images\DrawAnimation\In\In_26.png" />
+    <None Include="Content\Images\DrawAnimation\In\In_27.png" />
+    <None Include="Content\Images\DrawAnimation\In\In_28.png" />
+    <None Include="Content\Images\DrawAnimation\In\In_29.png" />
+    <None Include="Content\Images\DrawAnimation\In\In_3.png" />
+    <None Include="Content\Images\DrawAnimation\In\In_30.png" />
+    <None Include="Content\Images\DrawAnimation\In\In_31.png" />
+    <None Include="Content\Images\DrawAnimation\In\In_32.png" />
+    <None Include="Content\Images\DrawAnimation\In\In_33.png" />
+    <None Include="Content\Images\DrawAnimation\In\In_34.png" />
+    <None Include="Content\Images\DrawAnimation\In\In_35.png" />
+    <None Include="Content\Images\DrawAnimation\In\In_36.png" />
+    <None Include="Content\Images\DrawAnimation\In\In_37.png" />
+    <None Include="Content\Images\DrawAnimation\In\In_38.png" />
+    <None Include="Content\Images\DrawAnimation\In\In_39.png" />
+    <None Include="Content\Images\DrawAnimation\In\In_4.png" />
+    <None Include="Content\Images\DrawAnimation\In\In_5.png" />
+    <None Include="Content\Images\DrawAnimation\In\In_6.png" />
+    <None Include="Content\Images\DrawAnimation\In\In_7.png" />
+    <None Include="Content\Images\DrawAnimation\In\In_8.png" />
+    <None Include="Content\Images\DrawAnimation\In\In_9.png" />
+    <None Include="Content\Images\DrawAnimation\Out\Out_0.png" />
+    <None Include="Content\Images\DrawAnimation\Out\Out_1.png" />
+    <None Include="Content\Images\DrawAnimation\Out\Out_10.png" />
+    <None Include="Content\Images\DrawAnimation\Out\Out_11.png" />
+    <None Include="Content\Images\DrawAnimation\Out\Out_12.png" />
+    <None Include="Content\Images\DrawAnimation\Out\Out_13.png" />
+    <None Include="Content\Images\DrawAnimation\Out\Out_14.png" />
+    <None Include="Content\Images\DrawAnimation\Out\Out_15.png" />
+    <None Include="Content\Images\DrawAnimation\Out\Out_16.png" />
+    <None Include="Content\Images\DrawAnimation\Out\Out_17.png" />
+    <None Include="Content\Images\DrawAnimation\Out\Out_18.png" />
+    <None Include="Content\Images\DrawAnimation\Out\Out_19.png" />
+    <None Include="Content\Images\DrawAnimation\Out\Out_2.png" />
+    <None Include="Content\Images\DrawAnimation\Out\Out_3.png" />
+    <None Include="Content\Images\DrawAnimation\Out\Out_4.png" />
+    <None Include="Content\Images\DrawAnimation\Out\Out_5.png" />
+    <None Include="Content\Images\DrawAnimation\Out\Out_6.png" />
+    <None Include="Content\Images\DrawAnimation\Out\Out_7.png" />
+    <None Include="Content\Images\DrawAnimation\Out\Out_8.png" />
+    <None Include="Content\Images\DrawAnimation\Out\Out_9.png" />
+    <None Include="Content\Images\GameImages\Game_Background.png" />
+    <None Include="Content\Images\IntroductionAnimation\In\In_0.png" />
+    <None Include="Content\Images\IntroductionAnimation\In\In_1.png" />
+    <None Include="Content\Images\IntroductionAnimation\In\In_10.png" />
+    <None Include="Content\Images\IntroductionAnimation\In\In_11.png" />
+    <None Include="Content\Images\IntroductionAnimation\In\In_12.png" />
+    <None Include="Content\Images\IntroductionAnimation\In\In_13.png" />
+    <None Include="Content\Images\IntroductionAnimation\In\In_14.png" />
+    <None Include="Content\Images\IntroductionAnimation\In\In_15.png" />
+    <None Include="Content\Images\IntroductionAnimation\In\In_16.png" />
+    <None Include="Content\Images\IntroductionAnimation\In\In_17.png" />
+    <None Include="Content\Images\IntroductionAnimation\In\In_18.png" />
+    <None Include="Content\Images\IntroductionAnimation\In\In_19.png" />
+    <None Include="Content\Images\IntroductionAnimation\In\In_2.png" />
+    <None Include="Content\Images\IntroductionAnimation\In\In_20.png" />
+    <None Include="Content\Images\IntroductionAnimation\In\In_21.png" />
+    <None Include="Content\Images\IntroductionAnimation\In\In_22.png" />
+    <None Include="Content\Images\IntroductionAnimation\In\In_23.png" />
+    <None Include="Content\Images\IntroductionAnimation\In\In_24.png" />
+    <None Include="Content\Images\IntroductionAnimation\In\In_25.png" />
+    <None Include="Content\Images\IntroductionAnimation\In\In_26.png" />
+    <None Include="Content\Images\IntroductionAnimation\In\In_27.png" />
+    <None Include="Content\Images\IntroductionAnimation\In\In_28.png" />
+    <None Include="Content\Images\IntroductionAnimation\In\In_29.png" />
+    <None Include="Content\Images\IntroductionAnimation\In\In_3.png" />
+    <None Include="Content\Images\IntroductionAnimation\In\In_30.png" />
+    <None Include="Content\Images\IntroductionAnimation\In\In_31.png" />
+    <None Include="Content\Images\IntroductionAnimation\In\In_32.png" />
+    <None Include="Content\Images\IntroductionAnimation\In\In_33.png" />
+    <None Include="Content\Images\IntroductionAnimation\In\In_34.png" />
+    <None Include="Content\Images\IntroductionAnimation\In\In_35.png" />
+    <None Include="Content\Images\IntroductionAnimation\In\In_36.png" />
+    <None Include="Content\Images\IntroductionAnimation\In\In_37.png" />
+    <None Include="Content\Images\IntroductionAnimation\In\In_38.png" />
+    <None Include="Content\Images\IntroductionAnimation\In\In_39.png" />
+    <None Include="Content\Images\IntroductionAnimation\In\In_4.png" />
+    <None Include="Content\Images\IntroductionAnimation\In\In_5.png" />
+    <None Include="Content\Images\IntroductionAnimation\In\In_6.png" />
+    <None Include="Content\Images\IntroductionAnimation\In\In_7.png" />
+    <None Include="Content\Images\IntroductionAnimation\In\In_8.png" />
+    <None Include="Content\Images\IntroductionAnimation\In\In_9.png" />
+    <None Include="Content\Images\IntroductionAnimation\Out\Out_0.png" />
+    <None Include="Content\Images\IntroductionAnimation\Out\Out_1.png" />
+    <None Include="Content\Images\IntroductionAnimation\Out\Out_10.png" />
+    <None Include="Content\Images\IntroductionAnimation\Out\Out_11.png" />
+    <None Include="Content\Images\IntroductionAnimation\Out\Out_12.png" />
+    <None Include="Content\Images\IntroductionAnimation\Out\Out_13.png" />
+    <None Include="Content\Images\IntroductionAnimation\Out\Out_14.png" />
+    <None Include="Content\Images\IntroductionAnimation\Out\Out_15.png" />
+    <None Include="Content\Images\IntroductionAnimation\Out\Out_16.png" />
+    <None Include="Content\Images\IntroductionAnimation\Out\Out_17.png" />
+    <None Include="Content\Images\IntroductionAnimation\Out\Out_18.png" />
+    <None Include="Content\Images\IntroductionAnimation\Out\Out_19.png" />
+    <None Include="Content\Images\IntroductionAnimation\Out\Out_2.png" />
+    <None Include="Content\Images\IntroductionAnimation\Out\Out_3.png" />
+    <None Include="Content\Images\IntroductionAnimation\Out\Out_4.png" />
+    <None Include="Content\Images\IntroductionAnimation\Out\Out_5.png" />
+    <None Include="Content\Images\IntroductionAnimation\Out\Out_6.png" />
+    <None Include="Content\Images\IntroductionAnimation\Out\Out_7.png" />
+    <None Include="Content\Images\IntroductionAnimation\Out\Out_8.png" />
+    <None Include="Content\Images\IntroductionAnimation\Out\Out_9.png" />
+    <None Include="Content\Images\NewGameButton\down.png" />
+    <None Include="Content\Images\NewGameButton\hover.png" />
+    <None Include="Content\Images\NewGameButton\up.png" />
+    <None Include="Content\Images\NewGameDialogAnimation\In\In_0.png" />
+    <None Include="Content\Images\NewGameDialogAnimation\In\In_1.png" />
+    <None Include="Content\Images\NewGameDialogAnimation\In\In_10.png" />
+    <None Include="Content\Images\NewGameDialogAnimation\In\In_11.png" />
+    <None Include="Content\Images\NewGameDialogAnimation\In\In_12.png" />
+    <None Include="Content\Images\NewGameDialogAnimation\In\In_13.png" />
+    <None Include="Content\Images\NewGameDialogAnimation\In\In_14.png" />
+    <None Include="Content\Images\NewGameDialogAnimation\In\In_15.png" />
+    <None Include="Content\Images\NewGameDialogAnimation\In\In_16.png" />
+    <None Include="Content\Images\NewGameDialogAnimation\In\In_17.png" />
+    <None Include="Content\Images\NewGameDialogAnimation\In\In_18.png" />
+    <None Include="Content\Images\NewGameDialogAnimation\In\In_19.png" />
+    <None Include="Content\Images\NewGameDialogAnimation\In\In_2.png" />
+    <None Include="Content\Images\NewGameDialogAnimation\In\In_3.png" />
+    <None Include="Content\Images\NewGameDialogAnimation\In\In_4.png" />
+    <None Include="Content\Images\NewGameDialogAnimation\In\In_5.png" />
+    <None Include="Content\Images\NewGameDialogAnimation\In\In_6.png" />
+    <None Include="Content\Images\NewGameDialogAnimation\In\In_7.png" />
+    <None Include="Content\Images\NewGameDialogAnimation\In\In_8.png" />
+    <None Include="Content\Images\NewGameDialogAnimation\In\In_9.png" />
+    <None Include="Content\Images\NewGameDialogAnimation\Out\Out_0.png" />
+    <None Include="Content\Images\NewGameDialogAnimation\Out\Out_1.png" />
+    <None Include="Content\Images\NewGameDialogAnimation\Out\Out_10.png" />
+    <None Include="Content\Images\NewGameDialogAnimation\Out\Out_11.png" />
+    <None Include="Content\Images\NewGameDialogAnimation\Out\Out_12.png" />
+    <None Include="Content\Images\NewGameDialogAnimation\Out\Out_13.png" />
+    <None Include="Content\Images\NewGameDialogAnimation\Out\Out_14.png" />
+    <None Include="Content\Images\NewGameDialogAnimation\Out\Out_15.png" />
+    <None Include="Content\Images\NewGameDialogAnimation\Out\Out_16.png" />
+    <None Include="Content\Images\NewGameDialogAnimation\Out\Out_17.png" />
+    <None Include="Content\Images\NewGameDialogAnimation\Out\Out_18.png" />
+    <None Include="Content\Images\NewGameDialogAnimation\Out\Out_19.png" />
+    <None Include="Content\Images\NewGameDialogAnimation\Out\Out_2.png" />
+    <None Include="Content\Images\NewGameDialogAnimation\Out\Out_3.png" />
+    <None Include="Content\Images\NewGameDialogAnimation\Out\Out_4.png" />
+    <None Include="Content\Images\NewGameDialogAnimation\Out\Out_5.png" />
+    <None Include="Content\Images\NewGameDialogAnimation\Out\Out_6.png" />
+    <None Include="Content\Images\NewGameDialogAnimation\Out\Out_7.png" />
+    <None Include="Content\Images\NewGameDialogAnimation\Out\Out_8.png" />
+    <None Include="Content\Images\NewGameDialogAnimation\Out\Out_9.png" />
+    <None Include="Content\Images\PlaceOAnimation\0.png" />
+    <None Include="Content\Images\PlaceOAnimation\1.png" />
+    <None Include="Content\Images\PlaceOAnimation\10.png" />
+    <None Include="Content\Images\PlaceOAnimation\2.png" />
+    <None Include="Content\Images\PlaceOAnimation\3.png" />
+    <None Include="Content\Images\PlaceOAnimation\4.png" />
+    <None Include="Content\Images\PlaceOAnimation\5.png" />
+    <None Include="Content\Images\PlaceOAnimation\6.png" />
+    <None Include="Content\Images\PlaceOAnimation\7.png" />
+    <None Include="Content\Images\PlaceOAnimation\8.png" />
+    <None Include="Content\Images\PlaceOAnimation\9.png" />
+    <None Include="Content\Images\PlaceXAnimation\0.png" />
+    <None Include="Content\Images\PlaceXAnimation\1.png" />
+    <None Include="Content\Images\PlaceXAnimation\10.png" />
+    <None Include="Content\Images\PlaceXAnimation\2.png" />
+    <None Include="Content\Images\PlaceXAnimation\3.png" />
+    <None Include="Content\Images\PlaceXAnimation\4.png" />
+    <None Include="Content\Images\PlaceXAnimation\5.png" />
+    <None Include="Content\Images\PlaceXAnimation\6.png" />
+    <None Include="Content\Images\PlaceXAnimation\7.png" />
+    <None Include="Content\Images\PlaceXAnimation\8.png" />
+    <None Include="Content\Images\PlaceXAnimation\9.png" />
+    <None Include="Content\Images\StartGameButton\down.png" />
+    <None Include="Content\Images\StartGameButton\hover.png" />
+    <None Include="Content\Images\StartGameButton\up.png" />
+    <None Include="Content\Images\Subtitles\Amatsukaze\attack_1.png" />
+    <None Include="Content\Images\Subtitles\Amatsukaze\attack_2.png" />
+    <None Include="Content\Images\Subtitles\Amatsukaze\attack_3.png" />
+    <None Include="Content\Images\Subtitles\Amatsukaze\click_1.png" />
+    <None Include="Content\Images\Subtitles\Amatsukaze\click_2.png" />
+    <None Include="Content\Images\Subtitles\Amatsukaze\click_3.png" />
+    <None Include="Content\Images\Subtitles\Amatsukaze\start.png" />
+    <None Include="Content\Images\Subtitles\Amatsukaze\win.png" />
+    <None Include="Content\Images\Subtitles\Tokitsukaze\attack_1.png" />
+    <None Include="Content\Images\Subtitles\Tokitsukaze\attack_2.png" />
+    <None Include="Content\Images\Subtitles\Tokitsukaze\attack_3.png" />
+    <None Include="Content\Images\Subtitles\Tokitsukaze\click_1.png" />
+    <None Include="Content\Images\Subtitles\Tokitsukaze\click_2.png" />
+    <None Include="Content\Images\Subtitles\Tokitsukaze\click_3.png" />
+    <None Include="Content\Images\Subtitles\Tokitsukaze\idle.png" />
+    <None Include="Content\Images\Subtitles\Tokitsukaze\start.png" />
+    <None Include="Content\Images\TitleScreenAnimation\Title_background.png" />
+    <None Include="Content\Images\TitleScreenAnimation\In\In_0.png" />
+    <None Include="Content\Images\TitleScreenAnimation\In\In_1.png" />
+    <None Include="Content\Images\TitleScreenAnimation\In\In_10.png" />
+    <None Include="Content\Images\TitleScreenAnimation\In\In_11.png" />
+    <None Include="Content\Images\TitleScreenAnimation\In\In_12.png" />
+    <None Include="Content\Images\TitleScreenAnimation\In\In_13.png" />
+    <None Include="Content\Images\TitleScreenAnimation\In\In_14.png" />
+    <None Include="Content\Images\TitleScreenAnimation\In\In_15.png" />
+    <None Include="Content\Images\TitleScreenAnimation\In\In_16.png" />
+    <None Include="Content\Images\TitleScreenAnimation\In\In_17.png" />
+    <None Include="Content\Images\TitleScreenAnimation\In\In_18.png" />
+    <None Include="Content\Images\TitleScreenAnimation\In\In_19.png" />
+    <None Include="Content\Images\TitleScreenAnimation\In\In_2.png" />
+    <None Include="Content\Images\TitleScreenAnimation\In\In_20.png" />
+    <None Include="Content\Images\TitleScreenAnimation\In\In_21.png" />
+    <None Include="Content\Images\TitleScreenAnimation\In\In_22.png" />
+    <None Include="Content\Images\TitleScreenAnimation\In\In_23.png" />
+    <None Include="Content\Images\TitleScreenAnimation\In\In_24.png" />
+    <None Include="Content\Images\TitleScreenAnimation\In\In_25.png" />
+    <None Include="Content\Images\TitleScreenAnimation\In\In_26.png" />
+    <None Include="Content\Images\TitleScreenAnimation\In\In_27.png" />
+    <None Include="Content\Images\TitleScreenAnimation\In\In_28.png" />
+    <None Include="Content\Images\TitleScreenAnimation\In\In_29.png" />
+    <None Include="Content\Images\TitleScreenAnimation\In\In_3.png" />
+    <None Include="Content\Images\TitleScreenAnimation\In\In_30.png" />
+    <None Include="Content\Images\TitleScreenAnimation\In\In_31.png" />
+    <None Include="Content\Images\TitleScreenAnimation\In\In_32.png" />
+    <None Include="Content\Images\TitleScreenAnimation\In\In_33.png" />
+    <None Include="Content\Images\TitleScreenAnimation\In\In_34.png" />
+    <None Include="Content\Images\TitleScreenAnimation\In\In_35.png" />
+    <None Include="Content\Images\TitleScreenAnimation\In\In_36.png" />
+    <None Include="Content\Images\TitleScreenAnimation\In\In_37.png" />
+    <None Include="Content\Images\TitleScreenAnimation\In\In_38.png" />
+    <None Include="Content\Images\TitleScreenAnimation\In\In_39.png" />
+    <None Include="Content\Images\TitleScreenAnimation\In\In_4.png" />
+    <None Include="Content\Images\TitleScreenAnimation\In\In_40.png" />
+    <None Include="Content\Images\TitleScreenAnimation\In\In_41.png" />
+    <None Include="Content\Images\TitleScreenAnimation\In\In_42.png" />
+    <None Include="Content\Images\TitleScreenAnimation\In\In_43.png" />
+    <None Include="Content\Images\TitleScreenAnimation\In\In_44.png" />
+    <None Include="Content\Images\TitleScreenAnimation\In\In_45.png" />
+    <None Include="Content\Images\TitleScreenAnimation\In\In_46.png" />
+    <None Include="Content\Images\TitleScreenAnimation\In\In_47.png" />
+    <None Include="Content\Images\TitleScreenAnimation\In\In_48.png" />
+    <None Include="Content\Images\TitleScreenAnimation\In\In_49.png" />
+    <None Include="Content\Images\TitleScreenAnimation\In\In_5.png" />
+    <None Include="Content\Images\TitleScreenAnimation\In\In_50.png" />
+    <None Include="Content\Images\TitleScreenAnimation\In\In_51.png" />
+    <None Include="Content\Images\TitleScreenAnimation\In\In_52.png" />
+    <None Include="Content\Images\TitleScreenAnimation\In\In_53.png" />
+    <None Include="Content\Images\TitleScreenAnimation\In\In_54.png" />
+    <None Include="Content\Images\TitleScreenAnimation\In\In_55.png" />
+    <None Include="Content\Images\TitleScreenAnimation\In\In_56.png" />
+    <None Include="Content\Images\TitleScreenAnimation\In\In_57.png" />
+    <None Include="Content\Images\TitleScreenAnimation\In\In_58.png" />
+    <None Include="Content\Images\TitleScreenAnimation\In\In_59.png" />
+    <None Include="Content\Images\TitleScreenAnimation\In\In_6.png" />
+    <None Include="Content\Images\TitleScreenAnimation\In\In_60.png" />
+    <None Include="Content\Images\TitleScreenAnimation\In\In_7.png" />
+    <None Include="Content\Images\TitleScreenAnimation\In\In_8.png" />
+    <None Include="Content\Images\TitleScreenAnimation\In\In_9.png" />
+    <None Include="Content\Images\TitleScreenAnimation\Out\Out_0.png" />
+    <None Include="Content\Images\TitleScreenAnimation\Out\Out_1.png" />
+    <None Include="Content\Images\TitleScreenAnimation\Out\Out_10.png" />
+    <None Include="Content\Images\TitleScreenAnimation\Out\Out_11.png" />
+    <None Include="Content\Images\TitleScreenAnimation\Out\Out_12.png" />
+    <None Include="Content\Images\TitleScreenAnimation\Out\Out_13.png" />
+    <None Include="Content\Images\TitleScreenAnimation\Out\Out_14.png" />
+    <None Include="Content\Images\TitleScreenAnimation\Out\Out_15.png" />
+    <None Include="Content\Images\TitleScreenAnimation\Out\Out_16.png" />
+    <None Include="Content\Images\TitleScreenAnimation\Out\Out_17.png" />
+    <None Include="Content\Images\TitleScreenAnimation\Out\Out_18.png" />
+    <None Include="Content\Images\TitleScreenAnimation\Out\Out_19.png" />
+    <None Include="Content\Images\TitleScreenAnimation\Out\Out_2.png" />
+    <None Include="Content\Images\TitleScreenAnimation\Out\Out_3.png" />
+    <None Include="Content\Images\TitleScreenAnimation\Out\Out_4.png" />
+    <None Include="Content\Images\TitleScreenAnimation\Out\Out_5.png" />
+    <None Include="Content\Images\TitleScreenAnimation\Out\Out_6.png" />
+    <None Include="Content\Images\TitleScreenAnimation\Out\Out_7.png" />
+    <None Include="Content\Images\TitleScreenAnimation\Out\Out_8.png" />
+    <None Include="Content\Images\TitleScreenAnimation\Out\Out_9.png" />
+    <None Include="Content\Images\TokitsukazeAttackAnimation\In\In_0.png" />
+    <None Include="Content\Images\TokitsukazeAttackAnimation\In\In_1.png" />
+    <None Include="Content\Images\TokitsukazeAttackAnimation\In\In_10.png" />
+    <None Include="Content\Images\TokitsukazeAttackAnimation\In\In_2.png" />
+    <None Include="Content\Images\TokitsukazeAttackAnimation\In\In_3.png" />
+    <None Include="Content\Images\TokitsukazeAttackAnimation\In\In_4.png" />
+    <None Include="Content\Images\TokitsukazeAttackAnimation\In\In_5.png" />
+    <None Include="Content\Images\TokitsukazeAttackAnimation\In\In_6.png" />
+    <None Include="Content\Images\TokitsukazeAttackAnimation\In\In_7.png" />
+    <None Include="Content\Images\TokitsukazeAttackAnimation\In\In_8.png" />
+    <None Include="Content\Images\TokitsukazeAttackAnimation\In\In_9.png" />
+    <None Include="Content\Images\TokitsukazeAttackAnimation\Out\Out_0.png" />
+    <None Include="Content\Images\TokitsukazeAttackAnimation\Out\Out_1.png" />
+    <None Include="Content\Images\TokitsukazeAttackAnimation\Out\Out_10.png" />
+    <None Include="Content\Images\TokitsukazeAttackAnimation\Out\Out_2.png" />
+    <None Include="Content\Images\TokitsukazeAttackAnimation\Out\Out_3.png" />
+    <None Include="Content\Images\TokitsukazeAttackAnimation\Out\Out_4.png" />
+    <None Include="Content\Images\TokitsukazeAttackAnimation\Out\Out_5.png" />
+    <None Include="Content\Images\TokitsukazeAttackAnimation\Out\Out_6.png" />
+    <None Include="Content\Images\TokitsukazeAttackAnimation\Out\Out_7.png" />
+    <None Include="Content\Images\TokitsukazeAttackAnimation\Out\Out_8.png" />
+    <None Include="Content\Images\TokitsukazeAttackAnimation\Out\Out_9.png" />
+    <None Include="Content\Images\TokitsukazeButton\down.png" />
+    <None Include="Content\Images\TokitsukazeButton\hover.png" />
+    <None Include="Content\Images\TokitsukazeButton\up.png" />
+    <None Include="Content\Images\TokitsukazeFirstButton\down.png" />
+    <None Include="Content\Images\TokitsukazeFirstButton\hover.png" />
+    <None Include="Content\Images\TokitsukazeFirstButton\up.png" />
+    <None Include="Content\Images\WinAnimation\In\In_0.png" />
+    <None Include="Content\Images\WinAnimation\In\In_1.png" />
+    <None Include="Content\Images\WinAnimation\In\In_10.png" />
+    <None Include="Content\Images\WinAnimation\In\In_11.png" />
+    <None Include="Content\Images\WinAnimation\In\In_12.png" />
+    <None Include="Content\Images\WinAnimation\In\In_13.png" />
+    <None Include="Content\Images\WinAnimation\In\In_14.png" />
+    <None Include="Content\Images\WinAnimation\In\In_15.png" />
+    <None Include="Content\Images\WinAnimation\In\In_16.png" />
+    <None Include="Content\Images\WinAnimation\In\In_17.png" />
+    <None Include="Content\Images\WinAnimation\In\In_18.png" />
+    <None Include="Content\Images\WinAnimation\In\In_19.png" />
+    <None Include="Content\Images\WinAnimation\In\In_2.png" />
+    <None Include="Content\Images\WinAnimation\In\In_20.png" />
+    <None Include="Content\Images\WinAnimation\In\In_21.png" />
+    <None Include="Content\Images\WinAnimation\In\In_22.png" />
+    <None Include="Content\Images\WinAnimation\In\In_23.png" />
+    <None Include="Content\Images\WinAnimation\In\In_24.png" />
+    <None Include="Content\Images\WinAnimation\In\In_25.png" />
+    <None Include="Content\Images\WinAnimation\In\In_26.png" />
+    <None Include="Content\Images\WinAnimation\In\In_27.png" />
+    <None Include="Content\Images\WinAnimation\In\In_28.png" />
+    <None Include="Content\Images\WinAnimation\In\In_29.png" />
+    <None Include="Content\Images\WinAnimation\In\In_3.png" />
+    <None Include="Content\Images\WinAnimation\In\In_30.png" />
+    <None Include="Content\Images\WinAnimation\In\In_31.png" />
+    <None Include="Content\Images\WinAnimation\In\In_32.png" />
+    <None Include="Content\Images\WinAnimation\In\In_33.png" />
+    <None Include="Content\Images\WinAnimation\In\In_34.png" />
+    <None Include="Content\Images\WinAnimation\In\In_35.png" />
+    <None Include="Content\Images\WinAnimation\In\In_36.png" />
+    <None Include="Content\Images\WinAnimation\In\In_37.png" />
+    <None Include="Content\Images\WinAnimation\In\In_38.png" />
+    <None Include="Content\Images\WinAnimation\In\In_39.png" />
+    <None Include="Content\Images\WinAnimation\In\In_4.png" />
+    <None Include="Content\Images\WinAnimation\In\In_5.png" />
+    <None Include="Content\Images\WinAnimation\In\In_6.png" />
+    <None Include="Content\Images\WinAnimation\In\In_7.png" />
+    <None Include="Content\Images\WinAnimation\In\In_8.png" />
+    <None Include="Content\Images\WinAnimation\In\In_9.png" />
+    <None Include="Content\Images\WinAnimation\Out\Out_0.png" />
+    <None Include="Content\Images\WinAnimation\Out\Out_1.png" />
+    <None Include="Content\Images\WinAnimation\Out\Out_10.png" />
+    <None Include="Content\Images\WinAnimation\Out\Out_11.png" />
+    <None Include="Content\Images\WinAnimation\Out\Out_12.png" />
+    <None Include="Content\Images\WinAnimation\Out\Out_13.png" />
+    <None Include="Content\Images\WinAnimation\Out\Out_14.png" />
+    <None Include="Content\Images\WinAnimation\Out\Out_15.png" />
+    <None Include="Content\Images\WinAnimation\Out\Out_16.png" />
+    <None Include="Content\Images\WinAnimation\Out\Out_17.png" />
+    <None Include="Content\Images\WinAnimation\Out\Out_18.png" />
+    <None Include="Content\Images\WinAnimation\Out\Out_19.png" />
+    <None Include="Content\Images\WinAnimation\Out\Out_2.png" />
+    <None Include="Content\Images\WinAnimation\Out\Out_3.png" />
+    <None Include="Content\Images\WinAnimation\Out\Out_4.png" />
+    <None Include="Content\Images\WinAnimation\Out\Out_5.png" />
+    <None Include="Content\Images\WinAnimation\Out\Out_6.png" />
+    <None Include="Content\Images\WinAnimation\Out\Out_7.png" />
+    <None Include="Content\Images\WinAnimation\Out\Out_8.png" />
+    <None Include="Content\Images\WinAnimation\Out\Out_9.png" />
+    <None Include="Content\Sounds\backgroundMusic.wma" />
+    <None Include="Content\Sounds\Amatsukaze\XNBSoundConverter.exe" />
+    <None Include="Content\Sounds\Amatsukaze\attack_1.wav" />
+    <None Include="Content\Sounds\Amatsukaze\attack_2.wav" />
+    <None Include="Content\Sounds\Amatsukaze\attack_3.wav" />
+    <None Include="Content\Sounds\Amatsukaze\click_1.wav" />
+    <None Include="Content\Sounds\Amatsukaze\click_2.wav" />
+    <None Include="Content\Sounds\Amatsukaze\click_3.wav" />
+    <None Include="Content\Sounds\Amatsukaze\start.wav" />
+    <None Include="Content\Sounds\Amatsukaze\win.wav" />
+    <None Include="Content\Sounds\Tokitsukaze\attack_1.wav" />
+    <None Include="Content\Sounds\Tokitsukaze\attack_2.wav" />
+    <None Include="Content\Sounds\Tokitsukaze\attack_3.wav" />
+    <None Include="Content\Sounds\Tokitsukaze\click_1.wav" />
+    <None Include="Content\Sounds\Tokitsukaze\click_2.wav" />
+    <None Include="Content\Sounds\Tokitsukaze\click_3.wav" />
+    <None Include="Content\Sounds\Tokitsukaze\idle.wav" />
+    <None Include="Content\Sounds\Tokitsukaze\start.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <MonoGameContentReference Include="Content\Content.mgcb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="x64\libopenal.so.1">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x64\soft_oal.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x64\libSDL2-2.0.so.0">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x64\SDL2.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x86\libopenal.so.1">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x86\soft_oal.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x86\libSDL2-2.0.so.0">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x86\SDL2.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MonoGame.Framework.dll.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="libopenal.1.dylib">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="libSDL2-2.0.0.dylib">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
+</Project>
