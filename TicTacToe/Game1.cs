@@ -14,10 +14,8 @@ namespace TicTacToe
 	{
 		GraphicsDeviceManager graphics;
 		SpriteBatch spriteBatch;
-		Texture2D background;
 
-		IScreen CurrentScreen;
-
+		ScreenManager ScreenManager;
 		public Game1()
 		{
 			graphics = new GraphicsDeviceManager(this);
@@ -26,7 +24,7 @@ namespace TicTacToe
 			graphics.PreferredBackBufferHeight = Constants.WindowHeight;
 			IsMouseVisible = true;
 
-			CurrentScreen = new IntroScreen();
+			ScreenManager = new ScreenManager(Content);
 		}
 
 		/// <summary>
@@ -52,7 +50,7 @@ namespace TicTacToe
 			spriteBatch = new SpriteBatch(GraphicsDevice);
 
 			//TODO: use this.Content to load your game content here 
-			CurrentScreen.LoadContent(Content);
+			ScreenManager.LoadContent();
 		}
 
 		/// <summary>
@@ -67,10 +65,10 @@ namespace TicTacToe
 			#if !__IOS__ && !__TVOS__
 			if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Q))
 				Exit();
-			#endif
+#endif
 
 			// TODO: Add your update logic here
-			CurrentScreen.Update(gameTime, Mouse.GetState());
+			ScreenManager.Update(gameTime, Mouse.GetState());
 
 			base.Update(gameTime);
 		}
@@ -85,7 +83,7 @@ namespace TicTacToe
 
 			//TODO: Add your drawing code here
 			spriteBatch.Begin();
-			CurrentScreen.Draw(gameTime, spriteBatch);
+			ScreenManager.Draw(gameTime,spriteBatch);
 			spriteBatch.End();
 
 			base.Draw(gameTime);

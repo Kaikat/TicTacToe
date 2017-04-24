@@ -51,6 +51,9 @@
     <Compile Include="InterestingSubject.cs" />
     <Compile Include="Button.cs" />
     <Compile Include="Position.cs" />
+    <Compile Include="ScreenManager.cs" />
+    <Compile Include="MainGameScreen.cs" />
+    <Compile Include="Board.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.manifest" />

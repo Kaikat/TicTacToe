@@ -23,8 +23,8 @@ namespace TicTacToe
 
 		public Button(Position button_position, int button_width, int button_height, string asset_path, OnClickDelegate click)
 		{
-			area = new Rectangle(button_position.X, button_position.Y, button_width, button_height);
 			path = asset_path;
+			area = new Rectangle(button_position.X, button_position.Y, button_width, button_height);
 			backgrounds = new Texture2D[3];
 			Click = click;
 		}
@@ -65,7 +65,6 @@ namespace TicTacToe
 		public void Draw(SpriteBatch spriteBatch)
 		{
 			spriteBatch.Draw(backgrounds[indexToDraw], area, Color.White);
-
 		}
 
 		private bool IsWithinButtonBounds(MouseState mouseState)

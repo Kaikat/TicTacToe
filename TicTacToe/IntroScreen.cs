@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace TicTacToe
 {
-	public class IntroScreen : IScreen
+	public class IntroScreen : InterestingSubject, IScreen
 	{
 		private const string PATH = "Images/TitleScreenAnimation/";
 		private const int IN_COUNT = 61;
@@ -28,7 +28,7 @@ namespace TicTacToe
 		{
 			InAnimation = new List<Texture2D>();
 			OutAnimation = new List<Texture2D>();
-			StartGameButton = new Button(new Position(START_BUTTON_X, START_BUTTON_Y), START_BUTTON_WIDTH, START_BUTTON_HEIGHT, BUTTON_PATH, () => TempFunc());
+			StartGameButton = new Button(new Position(START_BUTTON_X, START_BUTTON_Y), START_BUTTON_WIDTH, START_BUTTON_HEIGHT, BUTTON_PATH, () => StartGame());
 		}
 
 		public void LoadContent(Microsoft.Xna.Framework.Content.ContentManager Content)
@@ -77,16 +77,16 @@ namespace TicTacToe
 			}
 		}
 
-		private void TempFunc()
-		{
-			Console.WriteLine("SwitchScreen");
-		}
-
 		public void Destroy(Microsoft.Xna.Framework.Content.ContentManager Content)
 		{
 			InAnimation.Clear();
 			OutAnimation.Clear();
 			Content.Unload();
+		}
+
+		private void StartGame()
+		{
+			Notify(GameEvent.StartGame);
 		}
 	}
 }
